@@ -1,9 +1,12 @@
 #include "../include/common.h"
 #include "../include/functions.h"
 
+std::ifstream fin("sudoku.in");
+std::ofstream fout("sudoku.out");
+
 int main() {
     std::vector<std::vector<int>> sudoku;
-    std::vector<Missing> emptySlots;
+    std::vector<Slot> emptySlots;
 
     char current;
     int row = 0, col = 0;
@@ -27,6 +30,11 @@ int main() {
         }
     }
 
+    std::vector<int> result = checker(sudoku, emptySlots[0]);
+
+    for (int i : result) {
+        std::cout << i << '\n';
+    }
 
     return 0;
 }

@@ -2,5 +2,6 @@
 
 #include "common.h"
 
-std::vector<int> checker(const std::vector<std::vector<int>>* sudoku, const Missing* slot);
-void solver(const std::vector<std::vector<int>>* sudoku, const std::vector<Missing>* emptySlots);
+std::vector<int> checker(const std::vector<std::vector<int>>& sudoku, const Slot& slot);
+void write(const std::vector<std::vector<int>>& sudoku);
+void solver(const std::vector<std::vector<int>>& sudoku, const std::vector<Slot>& emptySlots);

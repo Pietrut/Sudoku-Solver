@@ -4,9 +4,9 @@
 #include <iostream>
 #include <vector>
 
-std::ifstream fin("sudoku.in");
-std::ofstream fout("sudoku.out");
+extern std::ifstream fin;
+extern std::ofstream fout;
 
-struct Missing {
+struct Slot {
     int i, j;
 };

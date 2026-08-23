@@ -1,4 +1,5 @@
 #include "../include/common.h"
+#include "../include/functions.h"
 
 int main() {
     std::vector<std::vector<int>> sudoku;

@@ -6,6 +6,8 @@ std::ofstream fout("sudoku.out");
 
 int main() {
     bool solved = false;
+    long long checks = 0;
+
     std::vector<std::vector<int>> sudoku;
     std::vector<Slot> emptySlots;
 
@@ -34,7 +36,7 @@ int main() {
     auto start = std::chrono::high_resolution_clock::now();
 
     if (emptySlots.size() != 0) {
-        solved = solver(sudoku, emptySlots, 0);
+        solved = solver(sudoku, emptySlots, 0, checks);
     } else {
         return 0;
     }
@@ -45,7 +47,7 @@ int main() {
     );
 
     if (solved) {
-        write(sudoku, duration.count());
+        write(sudoku, duration.count(), checks);
     } else {
         fout << "ERROR!";
     }

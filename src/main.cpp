@@ -5,6 +5,7 @@ std::ifstream fin("sudoku.in");
 std::ofstream fout("sudoku.out");
 
 int main() {
+    bool solved = false;
     std::vector<std::vector<int>> sudoku;
     std::vector<Slot> emptySlots;
 
@@ -32,7 +33,11 @@ int main() {
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    bool solved = solver(sudoku, emptySlots, 0);
+    if (emptySlots.size() != 0) {
+        solved = solver(sudoku, emptySlots, 0);
+    } else {
+        return 0;
+    }
 
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(

@@ -30,10 +30,19 @@ int main() {
         }
     }
 
-    std::vector<int> result = checker(sudoku, emptySlots[0]);
+    auto start = std::chrono::high_resolution_clock::now();
 
-    for (int i : result) {
-        std::cout << i << '\n';
+    bool solved = solver(sudoku, emptySlots, 0);
+
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(
+        end - start
+    );
+
+    if (solved) {
+        write(sudoku, duration.count());
+    } else {
+        fout << "ERROR!";
     }
 
     return 0;

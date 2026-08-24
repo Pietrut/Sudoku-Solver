@@ -4,6 +4,10 @@ A simple Sudoku solver written in C++ using a recursive backtracking algorithm.
 
 ## Usage
 
+### Creating Files
+
+Make sure to create the `sudoku.in` file in the same folder as the executable. `sudoku.out` is created automatically.
+
 ### Input
 
 Place a Sudoku puzzle in `sudoku.in`. Use `0` or `X` for empty cells.

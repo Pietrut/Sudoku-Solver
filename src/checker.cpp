@@ -2,7 +2,7 @@
 #include "../include/functions.h"
 
 std::vector<int> checker(const std::vector<std::vector<int>>& sudoku, const Slot& slot) {
-    std::vector<int> possible = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    std::array<bool, 9> possible = {true, true, true, true, true, true, true, true, true};
     std::vector<int> result;
     
     Slot sqrStart = {((slot.i + 3) / 3 - 1) * 3, ((slot.j + 3) / 3 - 1) * 3};
@@ -17,14 +17,14 @@ std::vector<int> checker(const std::vector<std::vector<int>>& sudoku, const Slot
                 number = sudoku[i][j];
 
                 if (number == 0) { continue; }
-                possible[number - 1] = 0;
+                possible[number - 1] = false;
             }
         } else {
             // Vertical check
             number = sudoku[i][slot.j];
 
             if (number != 0) {
-                possible[number - 1] = 0;
+                possible[number - 1] = false;
             }
         }
 
@@ -36,14 +36,15 @@ std::vector<int> checker(const std::vector<std::vector<int>>& sudoku, const Slot
                 number = sudoku[i][j];
                 if (number == 0) { continue; }
 
-                possible[number - 1] = 0;
+                possible[number - 1] = false;
             }
         }
     }
 
-    for (int i : possible) {
-        if (i == 0) { continue; }
-        result.push_back(i);
+    for (int i = 0; i < possible.size(); i++) {
+        if (possible[i]) {
+            result.push_back(i + 1);
+        }
     }
 
     return result;

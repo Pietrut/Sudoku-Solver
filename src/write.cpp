@@ -2,8 +2,8 @@
 #include "../include/functions.h"
 
 void write(const std::vector<std::vector<int>>& sudoku, const long long& duration) {
-    for (int i = 0; i < sudoku.size() - 1; i++) {
-        for (int j = 0; j < sudoku.size() - 1; j++) {
+    for (int i = 0; i < sudoku.size(); i++) {
+        for (int j = 0; j < sudoku.size(); j++) {
             fout << sudoku[i][j] << ' ';
 
             if (j == 2 || j == 5) {

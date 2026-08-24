@@ -22,7 +22,7 @@ int main() {
             col++;
         }
 
-        if (col == 9) {
+        if (col == 9 && row != 8) {
             row++;
             sudoku.push_back({});
 

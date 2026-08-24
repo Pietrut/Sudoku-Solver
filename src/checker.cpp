@@ -8,12 +8,12 @@ std::vector<int> checker(const std::vector<std::vector<int>>& sudoku, const Slot
     Slot sqrStart = {((slot.i + 3) / 3 - 1) * 3, ((slot.j + 3) / 3 - 1) * 3};
     Slot sqrEnd = {sqrStart.i + 2, sqrStart.j + 2};
 
-    for (int i = 0; i < sudoku.size() - 1; i++) {
+    for (int i = 0; i < sudoku.size(); i++) {
         int number;
 
         if (i == slot.i) {
             // Horizontal check
-            for (int j = 0; j < sudoku.size() - 1; j++) {
+            for (int j = 0; j < sudoku.size(); j++) {
                 number = sudoku[i][j];
 
                 if (number == 0) { continue; }
